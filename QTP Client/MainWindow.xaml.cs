@@ -37,7 +37,9 @@ namespace QTP_Client
                 }
                 if(true)
                 {
-
+                    Main form = new Main();
+                    form.Show();
+                    Close();
                 }
                 //недостижимый потому что он вверзу всегда true
                 else
