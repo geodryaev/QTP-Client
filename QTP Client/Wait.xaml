@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="Wait" Height="400" Width="600">
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Выберете дисциплины" VerticalAlignment="Top" Width="227"/>
+        <TextBlock HorizontalAlignment="Left" TextAlignment="Center" Margin="363,10,0,0" TextWrapping="Wrap" Text="Выберете дисциплины" VerticalAlignment="Top" Width="227"/>
+        <StackPanel x:Name="panel" Width="250" HorizontalAlignment ="Left">
+        </StackPanel>
+        <Button x:Name="b_go" Content="Начать тестирование" HorizontalAlignment="Left" Margin="394,354,0,0" VerticalAlignment="Top" Width="164" Click="b_go_Click"/>
     </Grid>
 </Window>

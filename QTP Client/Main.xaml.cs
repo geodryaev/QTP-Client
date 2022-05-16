@@ -3,9 +3,6 @@ using System.Windows;
 
 namespace QTP_Client
 {
-    /// <summary>
-    /// Логика взаимодействия для Main.xaml
-    /// </summary>
     public partial class Main : Window
     {
         public Main()
@@ -44,10 +41,13 @@ namespace QTP_Client
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (tb_nameMat.Text.Length != 1 || tb_surename.Text.Length < 2 || tb_nameName.Text.Length != 1 || !(tb_surename.Text[0] > 'А' && tb_surename.Text[0] < 'Я') || !(tb_nameMat.Text[0] > 'А' && tb_nameMat.Text[0] < 'Я') || !(tb_nameName.Text[0] > 'А' && tb_nameName.Text[0] < 'Я'))
-            {
-                MessageBox.Show("Введите строго по макету Иванов А.А.");
-            }
+            //if (tb_nameMat.Text.Length != 1 || tb_surename.Text.Length < 2 || tb_nameName.Text.Length != 1 || !(tb_surename.Text[0] > 'А' && tb_surename.Text[0] < 'Я') || !(tb_nameMat.Text[0] > 'А' && tb_nameMat.Text[0] < 'Я') || !(tb_nameName.Text[0] > 'А' && tb_nameName.Text[0] < 'Я'))
+            //{
+            //    MessageBox.Show("Введите строго по макету Иванов А.А.");
+            //}
+            Wait form = new Wait(cb_unit.Text, cb_numberUnit.Text, cb_zvezda.Text, tb_surename.Text.Trim() + " " + tb_nameName.Text.Trim() + "." + tb_nameMat.Text.Trim()+".");
+            form.Show();
+            Close();
 
         }
 

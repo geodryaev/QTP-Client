@@ -76,6 +76,9 @@
     <Compile Include="SQLConnect.xaml.cs">
       <DependentUpon>SQLConnect.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TestingWindow.xaml.cs">
+      <DependentUpon>TestingWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Wait.xaml.cs">
       <DependentUpon>Wait.xaml</DependentUpon>
     </Compile>
@@ -96,6 +99,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="SQLConnect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TestingWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
