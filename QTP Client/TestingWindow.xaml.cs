@@ -38,6 +38,16 @@ namespace QTP_Client
 
             }
         }
+        public bool eqQuestion (string answer, string idQuestion)
+        {
+            using (SqlConnection con = new SqlConnection(strSQLConnection()))
+            {
+                con.Open();
+                SqlCommand com = new SqlCommand();
+                com.Connection = con;
+                com.CommandText = "";
+            }
+        }
         public string strSQLConnection()
         {
             return "Server=" + Properties.Settings.Default.pathSQL + ";Initial Catalog =QTPDB; User ID = sa; Password = qwerty12";
