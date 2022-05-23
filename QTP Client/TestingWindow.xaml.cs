@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.SqlClient;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.Data.SqlClient;
 
 
 namespace QTP_Client
@@ -38,7 +26,7 @@ namespace QTP_Client
 
             }
         }
-        public bool eqQuestion (string answer, string idQuestion)
+        public bool eqQuestion(string answer, string idQuestion)
         {
             using (SqlConnection con = new SqlConnection(strSQLConnection()))
             {
@@ -47,24 +35,96 @@ namespace QTP_Client
                 com.Connection = con;
                 com.CommandText = "";
             }
+            return true;
+        }
+
+
+
+        public class myAll
+        {
+            public myAll(string[] nameDisciplines, string strSQLconnection)
+            {
+                _connectionSQL = strSQLconnection;
+            }
+
+            private string _connectionSQL;
+            public Disciplines[] _arrayQuestion;
+            public int _count;
+        }
+
+
+        public class Disciplines
+        {
+            public Disciplines(string str, string strSQLconnection, int countQuestionTesting)
+            {
+                _nameDisciplines = str;
+                _countQuestionTesting = countQuestionTesting;
+                _connection = new SqlConnection(strSQLconnection);
+                _connection.Open();
+                SqlCommand command = new SqlCommand();
+                command.CommandText = "SELECT * FROM t_tems";
+                SqlDataReader read = command.ExecuteReader();
+                while (read.Read())
+                {
+                    if (read.GetValue(1).ToString() == _nameDisciplines)
+                    {
+                        _tKey = read.GetValue(0).ToString();
+                    }
+                }
+                read.Close();
+                _connection.Close();
+                _arrayQuestion = new Question[_countQuestionTesting];
+            }
+
+            private int countQuestion()
+            {
+                int count = 0;
+                _connection.Open();
+                SqlCommand com = new SqlCommand("SELECT * FROM t_question");
+                SqlDataReader read = com.ExecuteReader();
+                while (read.Read())
+                {
+                    if (read.GetValue(1).ToString() == _tKey)
+                    {
+                        count++;
+                    }
+                }
+                read.Close();
+                _connection.Close();
+                return count;
+            }
+            private void setQuestion ()
+            {
+                int count = 0;
+                string[] bufferArrayQuestion = new string[countQuestion()];
+                _connection.Open();
+                SqlCommand com = new SqlCommand("SELECT * FROM t_question");
+                SqlDataReader read = com.ExecuteReader();
+                while (read.Read())
+                {
+                    if (read.GetValue(1).ToString() == _tKey)
+                    {
+                        bufferArrayQuestion[count] = read.GetValue(0).ToString();
+                        count++;
+                    }
+                }
+                read.Close();
+            }
+            private int _countQuestionTesting;
+            private string _tKey ;
+            public string _nameDisciplines;
+            private SqlConnection _connection;
+            public Question[] _arrayQuestion;
+        }
+        public struct Question
+        {
+            public string _nameQuestrion, _kQuestion;
+            public string[] _kAnswers;
+            public int[] _kTrueAnswer;// хранит индекс правильного ответа
         }
         public string strSQLConnection()
         {
             return "Server=" + Properties.Settings.Default.pathSQL + ";Initial Catalog =QTPDB; User ID = sa; Password = qwerty12";
         }
-
-        public struct Disciplines
-        {
-            public string _name;
-            public string 
-        }
-        public struct Question
-        {
-            public string _nameQuestrion;
-            public string[] _answers;
-            public int _countAnser;
-            public string answer;
-        }
-
     }
 }
