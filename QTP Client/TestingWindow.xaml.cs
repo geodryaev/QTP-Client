@@ -1,6 +1,6 @@
 ﻿using System.Data.SqlClient;
 using System.Windows;
-
+using System;
 
 namespace QTP_Client
 {
@@ -40,6 +40,7 @@ namespace QTP_Client
 
 
 
+
         public class myAll
         {
             public myAll(string[] nameDisciplines, string strSQLconnection)
@@ -51,7 +52,6 @@ namespace QTP_Client
             public Disciplines[] _arrayQuestion;
             public int _count;
         }
-
 
         public class Disciplines
         {
@@ -108,9 +108,41 @@ namespace QTP_Client
                         count++;
                     }
                 }
-                //------------------------------------
                 read.Close();
+                int[] bufNubmerRandom = getArray(_countQuestionTesting);
+                for (int i = 0; i < _arrayQuestion.Length; i++)
+                {
+                    _arrayQuestion[i]._nameQuestrion = bufferArrayQuestion[randomNumber(ref bufNubmerRandom)];
+                }
+                _connection.Close();
             }
+            private int randomNumber(ref int[] arrInt)
+            {
+                Random r = new Random();
+                int numberRandom = r.Next(0, arrInt.Length), random = arrInt[numberRandom], count = 0;
+                int[] newArr = new int[arrInt.Length - 1];
+                for (int i = 0; i < arrInt.Length; i++)
+                {
+                    if (i != numberRandom)
+                    {
+                        newArr[count] = arrInt[i];
+                        count++;
+                    }
+                }
+                arrInt = newArr;
+                return random;
+            }
+            private int[] getArray(int number)
+            {
+                int[] answer = new int[number];
+                for (int i = 0; i < answer.Length; i++)
+                {
+                    answer[i] = i;
+                }
+
+                return answer;
+            }
+            
             private int _countQuestionTesting;
             private string _tKey ;
             public string _nameDisciplines;
@@ -121,7 +153,7 @@ namespace QTP_Client
         {
             public string _nameQuestrion, _kQuestion;
             public string[] _kAnswers;
-            public int[] _kTrueAnswer;// хранит индекс правильного ответа
+            public int[] _kTrueAnswer; //хранит индекс правильного ответа
         }
         public string strSQLConnection()
         {
