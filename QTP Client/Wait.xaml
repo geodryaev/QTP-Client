@@ -5,11 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QTP_Client"
         mc:Ignorable="d"
-        Title="Wait" Height="400" Width="600">
-    <Grid>
+        Title="Wait" Height="410" Width="595">
+    <Grid Margin="0,0,0,3">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         <TextBlock HorizontalAlignment="Left" TextAlignment="Center" Margin="363,10,0,0" TextWrapping="Wrap" Text="Выберете дисциплины" VerticalAlignment="Top" Width="227"/>
         <StackPanel x:Name="panel" Width="250" HorizontalAlignment ="Left">
         </StackPanel>
-        <Button x:Name="b_go" Content="Начать тестирование" HorizontalAlignment="Left" Margin="394,354,0,0" VerticalAlignment="Top" Width="164" Click="b_go_Click"/>
+        <Button x:Name="b_go" Content="Начать тестирование" HorizontalAlignment="Left" Margin="386,314,0,0" VerticalAlignment="Top" Width="164" Click="b_go_Click"/>
     </Grid>
 </Window>
