@@ -21,6 +21,7 @@ namespace QTP_Client
     public partial class TestingWindow : Window
     {
         myAll all;
+        Disciplines now;
         string[] nameTems;
         string unit, numberUnit, zvezda, fullName;
         public TestingWindow(string _unit, string _nameUnit, string _zvezda, string _fullName, string[] _nameTems)
@@ -32,28 +33,37 @@ namespace QTP_Client
             fullName = _fullName;
             nameTems = _nameTems;
             all = new myAll(_nameTems, strSQLConnection());
-            Button b = new Button(), n = new Button();
-            b.Width = 200;
-            n.Width = 200;
-            b.Height = 200;
-            n.Height = 200;
-            sp_navigations.Children.Add(b);
-            sp_navigations.Children.Add(n);
-            
+            label_nameTems.Content = all._arrayDisciplines[0]._nameDisciplines;
+            Button[] arrayB = new Button[all._arrayDisciplines[0]._arrayQuestion.Length];
+            for (int i =0; i < all._arrayDisciplines[0]._arrayQuestion.Length; i++)
+            {
+                arrayB[i] = new Button();
+                arrayB[i].Width = 30;
+                arrayB[i].Height = 30;
+                arrayB[i].Content = i+1;
+                arrayB[i].HorizontalAlignment = HorizontalAlignment.Left;
+                arrayB[i].VerticalAlignment = VerticalAlignment.Top;
+                wr_panel.Children.Add(arrayB[i]);
+            }
+            now = all._arrayDisciplines[0];
+            labeNumber.Content = "1";
+            tb_Question.Text = now._arrayQuestion[0]._nameQuestrion;
         }
 
 
+        public void createInterface(Question question)
+        {
+            for (int i = 0; i < question._kAnswers.Length; i++)
+            {
+                
+            }
+        }
 
-
-
-
-
-
-
-
-
-
-
+        public void buttonCkick (int count)
+        {
+            
+            tb_Question.Text = now._nameDisciplines.ToString();
+        }
         //public bool eqQuestion(string answer, string idQuestion)
         //{
         //    using (SqlConnection con = new SqlConnection(strSQLConnection()))
@@ -263,16 +273,17 @@ namespace QTP_Client
             private SqlConnection _connection;
             public Question[] _arrayQuestion;
         }
-        public string strSQLConnection()
-        {
-            return "Server=" + Properties.Settings.Default.pathSQL + ";Initial Catalog =QTPDB; User ID = sa; Password = qwerty12";
-        }
         public struct Question
         {
             public string _nameQuestrion, _kQuestion;
             public string[] _kAnswers;
             public string[] _kTrueAnswer; //хранит индекс правильного ответа
+            public string[] _answerUser;
         }
-        
+        public string strSQLConnection()
+        {
+            return "Server=" + Properties.Settings.Default.pathSQL + ";Initial Catalog =QTPDB; User ID = sa; Password = qwerty12";
+        }
+
     }
 }
