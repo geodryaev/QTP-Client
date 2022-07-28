@@ -55,5 +55,6 @@ namespace QTP_Client
         {
             return "Server=" + Properties.Settings.Default.pathSQL + ";Initial Catalog =QTPDB; User ID = sa; Password = qwerty12";
         }
+
     }
 }

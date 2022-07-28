@@ -8,17 +8,17 @@
         Title="Main" Height="450" Width="880">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="27,103,0,0" TextWrapping="Wrap" Text="Подразделение" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cb_unit" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top" Width="120" Text=""/>
+        <ComboBox x:Name="cb_unit" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top" Width="120" Text="" />
         <TextBlock HorizontalAlignment="Left" Margin="249,103,0,0" TextWrapping="Wrap" Text="Номер учебаной группы" VerticalAlignment="Top"/>
         <ComboBox x:Name="cb_numberUnit" HorizontalAlignment="Left" Margin="257,124,0,0" VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Left" Margin="482,103,0,0" TextWrapping="Wrap" Text="Воинское звание" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cb_zvezda" HorizontalAlignment="Left" Margin="470,124,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cb_zvezda" HorizontalAlignment="Left" Margin="439,124,0,0" VerticalAlignment="Top" Width="179"/>
         <TextBlock HorizontalAlignment="Left" Margin="739,106,0,0" TextWrapping="Wrap" Text="Ф. И. О." VerticalAlignment="Top"/>
         <TextBox x:Name="tb_surename" HorizontalAlignment="Left" Margin="676,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="104" Height="22"/>
         <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Пример " VerticalAlignment="Top" Margin="0,230,0,0"/>
         <TextBlock HorizontalAlignment="Left" Margin="57,256,0,0" TextWrapping="Wrap" Text="УМО" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="314,259,0,0" TextWrapping="Wrap" Text="2" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="539,256,0,0" TextWrapping="Wrap" Text="Лейтенант" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="500,256,0,0" TextWrapping="Wrap" Text="Лейтенант" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="725,256,0,0" TextWrapping="Wrap" Text="Иванов А. А." VerticalAlignment="Top"/>
         <Button Content="Начать тестирование" HorizontalAlignment="Center" Margin="0,376,0,0" VerticalAlignment="Top" Width="150" Click="Button_Click"/>
         <TextBlock HorizontalAlignment="Left" Margin="815,130,0,0" TextWrapping="Wrap" Text="." VerticalAlignment="Top"/>
