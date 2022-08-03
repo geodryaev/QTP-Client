@@ -33,12 +33,12 @@
         <Label x:Name="label_nameTems" Content="" HorizontalAlignment="Left" Margin="76,39,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.342,0.695" FontSize="48"/>
         <Canvas Background="Gray" Margin="81,464,45,222">
             <CheckBox x:Name="cb1" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="132" Canvas.Top="37"/>
-            <TextBlock x:Name="tb1" HorizontalAlignment="Left" Background="White" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="1256" Height="51" Canvas.Left="152" Canvas.Top="19"/>
-            <TextBlock x:Name="tb2" TextWrapping="Wrap" Background="White" Text="" Width="1256" Height="51" Canvas.Left="152" Canvas.Top="75" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-            <TextBlock x:Name="tb3" TextWrapping="Wrap" Background="White" Text="" Width="1256" Height="51" Canvas.Left="152" Canvas.Top="131" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-            <TextBlock x:Name="tb4" TextWrapping="Wrap" Background="White" Text="" Width="1256" Height="51" Canvas.Left="152" Canvas.Top="187" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-            <TextBlock x:Name="tb5" TextWrapping="Wrap" Background="White" Text="" Width="1256" Height="51" Canvas.Left="152" Canvas.Top="243" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-            <TextBlock x:Name="tb6" TextWrapping="Wrap" Background="White" Text="" Width="1256" Height="51" Canvas.Left="152" Canvas.Top="298" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <TextBlock x:Name="tb1" HorizontalAlignment="Left" Background="White" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="1256" Height="51" Canvas.Left="152" Canvas.Top="19" PreviewMouseDown ="tb1_PreviewMouseDown"/>
+            <TextBlock x:Name="tb2" TextWrapping="Wrap" Background="White" Text="" Width="1256" Height="51" Canvas.Left="152" Canvas.Top="75"  HorizontalAlignment="Center" VerticalAlignment="Top" PreviewMouseDown ="tb2_PreviewMouseDown"/>
+            <TextBlock x:Name="tb3" TextWrapping="Wrap" Background="White" Text="" Width="1256" Height="51" Canvas.Left="152" Canvas.Top="131" HorizontalAlignment="Center" VerticalAlignment="Top" PreviewMouseDown ="tb3_PreviewMouseDown"/>
+            <TextBlock x:Name="tb4" TextWrapping="Wrap" Background="White" Text="" Width="1256" Height="51" Canvas.Left="152" Canvas.Top="187" HorizontalAlignment="Center" VerticalAlignment="Top" PreviewMouseDown ="tb4_PreviewMouseDown"/>
+            <TextBlock x:Name="tb5" TextWrapping="Wrap" Background="White" Text="" Width="1256" Height="51" Canvas.Left="152" Canvas.Top="243" HorizontalAlignment="Center" VerticalAlignment="Top" PreviewMouseDown ="tb5_PreviewMouseDown"/>
+            <TextBlock x:Name="tb6" TextWrapping="Wrap" Background="White" Text="" Width="1256" Height="51" Canvas.Left="152" Canvas.Top="298" HorizontalAlignment="Center" VerticalAlignment="Top" PreviewMouseDown ="tb6_PreviewMouseDown"/>
             <CheckBox x:Name="cb2" Content="" Canvas.Left="132" Canvas.Top="93" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <CheckBox x:Name="cb3" Content="" Canvas.Left="132" Canvas.Top="149" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <CheckBox x:Name="cb4" Content="" Canvas.Left="132" Canvas.Top="205" HorizontalAlignment="Left" VerticalAlignment="Center"/>

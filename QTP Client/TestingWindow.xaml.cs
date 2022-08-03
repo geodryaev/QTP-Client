@@ -136,7 +136,12 @@ namespace QTP_Client
                 arrayB[i].VerticalAlignment = VerticalAlignment.Top;
                 wr_panel.Children.Add(arrayB[i]);
             }
-
+            allMin = getAllMin(now);
+            allMin = allMin * 60;
+            timer = new DispatcherTimer();
+            timer.Tick += new EventHandler(timerTick);
+            timer.Interval = new TimeSpan(0, 0, 1);
+            timer.Start();
             arrayB[0].RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
         }
         public void timerTick (object sender, EventArgs e)
@@ -545,6 +550,75 @@ namespace QTP_Client
         {
             b_next.RaiseEvent(new RoutedEventArgs(Button.ClickEvent)); 
         }
+        private void tb1_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (cb1.IsChecked == false)
+            {
+                cb1.IsChecked = true;
+            }
+            else
+            {
+                cb1.IsChecked = false;
+            }
+        }
+        private void tb2_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (cb2.IsChecked == false)
+            {
+                cb2.IsChecked = true;
+            }
+            else
+            {
+                cb2.IsChecked = false;
+            }
+        }
+        private void tb3_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (cb3.IsChecked == false)
+            {
+                cb3.IsChecked = true;
+            }
+            else
+            {
+                cb3.IsChecked = false;
+            }
+        }
+        private void tb4_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (cb4.IsChecked == false)
+            {
+                cb4.IsChecked = true;
+            }
+            else
+            {
+                cb4.IsChecked = false;
+            }
+        }
+        private void tb5_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (cb5.IsChecked == false)
+            {
+                cb5.IsChecked = true;
+            }
+            else
+            {
+                cb5.IsChecked = false;
+            }
+        }
+        private void tb6_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (cb6.IsChecked == false)
+            {
+                cb6.IsChecked = true;
+            }
+            else
+            {
+                cb6.IsChecked = false;
+            }
+        }
+
+        
+
         public struct Question
         {
             public string _nameQuestrion, _kQuestion;
