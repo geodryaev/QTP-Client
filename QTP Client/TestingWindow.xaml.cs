@@ -12,7 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using System.Windows.Threading;
 
 namespace QTP_Client
 {
@@ -26,14 +26,18 @@ namespace QTP_Client
         myAll all;
         Disciplines now;
         DoublFuck [] arrayDB;
-        int numberTems;
+        DispatcherTimer timer;
+        int numberTems, allMin;
         string unit, numberUnit, zvezda, fullName;
         string[] nameTems;
         public static RoutedCommand MyCommand = new RoutedCommand();
+     
 
         public TestingWindow(string _unit, string _nameUnit, string _zvezda, string _fullName, string[] _nameTems)
         {
             InitializeComponent();
+
+
             MyCommand.InputGestures.Add(new KeyGesture(Key.Enter));
             arrayDB  =new DoublFuck[6];
             arrayDB[0]._cb = cb1;
@@ -77,7 +81,13 @@ namespace QTP_Client
                 arrayB[i].VerticalAlignment = VerticalAlignment.Top;
                 wr_panel.Children.Add(arrayB[i]);
             }
-
+            allMin = getAllMin(now);
+            allMin = allMin * 60;
+            timer = new DispatcherTimer();
+            timer.Tick += new EventHandler(timerTick);
+            timer.Interval = new TimeSpan(0, 0, 1);
+            timer.Start();
+            
             arrayB[0].RaiseEvent(new RoutedEventArgs(Button.ClickEvent)); 
         }
         public TestingWindow(string _unit, string _nameUnit, string _zvezda, string _fullName, string[] _nameTems, int countNext)
@@ -128,6 +138,20 @@ namespace QTP_Client
             }
 
             arrayB[0].RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+        }
+        public void timerTick (object sender, EventArgs e)
+        {
+            int hour, minute, second;
+            allMin--;
+            if (allMin == 0)
+            {
+                complate();
+            }
+            hour = allMin / 3600;
+            minute = (allMin - (hour * 3600) )/ 60;
+            second = (allMin - (hour * 3600) - (minute *60));
+
+            tb_timer.Text = "Ч:" + Convert.ToString(hour) + "\tМ:" + Convert.ToString(minute) + "\tC:" + Convert.ToString(second);
         }
         public string getNumberButton (string str)
         {
@@ -538,6 +562,30 @@ namespace QTP_Client
         {
             return "Server=" + Properties.Settings.Default.pathSQL + ";Initial Catalog =QTPDB; User ID = sa; Password = qwerty12";
         }
+        public int getAllMin(Disciplines a)
+        {
+            int answer = 0;
+            using (SqlConnection c = new SqlConnection(strSQLConnection()))
+            {
+                c.Open();
+                SqlCommand command = new SqlCommand("SELECT * FROM t_tems");
+                command.Connection = c;
+                SqlDataReader read = command.ExecuteReader();
+                while (read.Read())
+                {
+                    if (read.GetValue(1).ToString() == a._nameDisciplines)
+                    {
+
+                        answer = Convert.ToInt32(read.GetValue(5).ToString()) * Convert.ToInt32(read.GetValue(6).ToString());
+                    }
+                }
+                read.Close();
+                c.Close();
+
+            }
+            return answer;
+        }
+
 
     }
 }

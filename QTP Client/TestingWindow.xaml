@@ -13,7 +13,7 @@
         <CommandBinding Command="{x:Static local:TestingWindow.MyCommand }" Executed="CommandBinding_Executed"></CommandBinding>
     </Window.CommandBindings>
     <Grid>
-        
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
@@ -46,5 +46,6 @@
             <CheckBox x:Name="cb6" Content="" Canvas.Left="132" Canvas.Top="316" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
         </Canvas>
+        <TextBlock x:Name="tb_timer" HorizontalAlignment="Left" Margin="10,1022,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="48" Width="604" FontSize="36"/>
     </Grid>
 </Window>
