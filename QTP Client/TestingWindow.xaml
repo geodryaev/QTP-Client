@@ -7,6 +7,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QTP_Client"
+        WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
         Title="QTP-Client" Width="1920" Height="1080" WindowStyle="None">
     <Window.CommandBindings>
@@ -31,7 +32,7 @@
         <Label Content="Вопрос №" HorizontalAlignment="Left" Margin="72,124,0,0" VerticalAlignment="Top" FontSize="48" Height="74" Width="238"/>
         <Label x:Name="labeNumber" Content="" HorizontalAlignment="Left" Margin="310,124,0,0" VerticalAlignment="Top" FontSize="48" Height="74" Width="100"/>
         <Label x:Name="label_nameTems" Content="" HorizontalAlignment="Left" Margin="76,39,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.342,0.695" FontSize="48"/>
-        <Canvas Background="Gray" Margin="81,464,45,222">
+        <Canvas Background="Gray" Margin="81,464,45,222" Height="370">
             <CheckBox x:Name="cb1" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="132" Canvas.Top="37"/>
             <TextBlock x:Name="tb1" HorizontalAlignment="Left" Background="White" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="1256" Height="51" Canvas.Left="152" Canvas.Top="19" PreviewMouseDown ="tb1_PreviewMouseDown"/>
             <TextBlock x:Name="tb2" TextWrapping="Wrap" Background="White" Text="" Width="1256" Height="51" Canvas.Left="152" Canvas.Top="75"  HorizontalAlignment="Center" VerticalAlignment="Top" PreviewMouseDown ="tb2_PreviewMouseDown"/>

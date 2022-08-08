@@ -31,12 +31,13 @@ namespace QTP_Client
         string unit, numberUnit, zvezda, fullName;
         string[] nameTems;
         public static RoutedCommand MyCommand = new RoutedCommand();
+        bool globalTime;
      
 
         public TestingWindow(string _unit, string _nameUnit, string _zvezda, string _fullName, string[] _nameTems)
         {
             InitializeComponent();
-
+            globalTime = false;
 
             MyCommand.InputGestures.Add(new KeyGesture(Key.Enter));
             arrayDB  =new DoublFuck[6];
@@ -93,6 +94,8 @@ namespace QTP_Client
         public TestingWindow(string _unit, string _nameUnit, string _zvezda, string _fullName, string[] _nameTems, int countNext)
         {
             InitializeComponent();
+            globalTime = false;
+
             MyCommand.InputGestures.Add(new KeyGesture(Key.Enter));
             arrayDB = new DoublFuck[6];
             arrayDB[0]._cb = cb1;
@@ -150,6 +153,7 @@ namespace QTP_Client
             allMin--;
             if (allMin == 0)
             {
+                globalTime = true;
                 complate();
             }
             hour = allMin / 3600;
@@ -249,8 +253,13 @@ namespace QTP_Client
             }
             if (ch)
             {
-
-                Result form = new Result(now,unit,numberUnit,zvezda,fullName, numberTems,nameTems);
+                Result form = new Result(now, unit, numberUnit, zvezda, fullName, numberTems, nameTems);
+                form.Show();
+                Close();
+            }
+            if (globalTime)
+            {
+                Result form = new Result(now, unit, numberUnit, zvezda, fullName, numberTems, nameTems);
                 form.Show();
                 Close();
             }

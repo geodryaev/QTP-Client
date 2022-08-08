@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QTP_Client"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="Main" Height="450" Width="880">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="27,103,0,0" TextWrapping="Wrap" Text="Подразделение" VerticalAlignment="Top"/>

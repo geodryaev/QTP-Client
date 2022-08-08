@@ -33,7 +33,7 @@ namespace QTP_Client
             numberUnit = _nameUnit;
             zvezda = _zvezda;
             fullName = _fullName;
-            int countTrue = getNumverTrueAnswer(now);
+            int countTrue = getNumberTrueAnswer(now);
             string assessment = "2";
             countTrue = now._arrayQuestion.Length - countTrue;
             if (countTrue <= now._free)
@@ -58,7 +58,7 @@ namespace QTP_Client
             fullText allResult = new fullText(strSQLConnection(), SP, now);
             allResult.sqlUpload(unit, numberUnit, zvezda, fullName);
         }
-        public int getNumverTrueAnswer(TestingWindow.Disciplines dis)
+        public int getNumberTrueAnswer(TestingWindow.Disciplines dis)
         {
             int answer = 0;
             for (int i = 0; i < dis._arrayQuestion.Length; i++)
@@ -70,9 +70,12 @@ namespace QTP_Client
         }
         public bool isGood(TestingWindow.Question quest)
         {
+            if (quest._answerUser == null)
+                return false;
+
             for (int i = 0; i < quest._answerUser.Length; i++)
             {
-                if (!oneTrue(quest._kTrueAnswer, quest._answerUser[i]))
+                if ( !oneTrue(quest._kTrueAnswer, quest._answerUser[i]))
                 {
                     return false;
                 }
@@ -174,6 +177,9 @@ namespace QTP_Client
             }
             private bool red(TestingWindow.Question q, string key)
             {
+                if (q._answerUser == null)
+                    return false;
+
                 for (int i = 0; i<q._answerUser.Length;i++)
                 {
                     if (q._answerUser[i] == key)
@@ -183,6 +189,9 @@ namespace QTP_Client
             }
             private bool green(TestingWindow.Question q, string key)
             {
+                if (q._answerUser == null)
+                    return false;
+
                 for (int i = 0; i < q._kTrueAnswer.Length; i++)
                 {
                     if (q._kTrueAnswer[i] == key)
@@ -231,6 +240,15 @@ namespace QTP_Client
             {
                 string answer = "";
                 answer += q._kQuestion + "-";
+                if (q._kQuestion == null)
+                {
+                    return answer;
+                }
+                if (q._answerUser == null)
+                {
+                    answer += "&";
+                    return answer ;
+                }
                 for (int i = 0; i < q._answerUser.Length; i++)
                 {
                     answer += q._answerUser[i] + "|";
