@@ -34,6 +34,7 @@ namespace QTP_Client
         bool globalTime;
      
 
+
         public TestingWindow(string _unit, string _nameUnit, string _zvezda, string _fullName, string[] _nameTems)
         {
             InitializeComponent();

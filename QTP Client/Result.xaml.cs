@@ -17,14 +17,12 @@ namespace QTP_Client
 {
     public partial class Result : Window
     {
-        
         private TestingWindow.Disciplines now;
         string unit, numberUnit, zvezda, fullName;
         string[] tems;
         int countNextTems;
         public Result(TestingWindow.Disciplines _now, string _unit, string _nameUnit, string _zvezda, string _fullName, int _countTems, string[] _tems)
         {
-            
             InitializeComponent();
             tems = _tems;
             countNextTems = _countTems;
@@ -113,7 +111,7 @@ namespace QTP_Client
         {
             return "Server=" + Properties.Settings.Default.pathSQL + ";Initial Catalog =QTPDB; User ID = sa; Password = qwerty12";
         }
-
+         
         class fullText
         {
             public fullText(string con, StackPanel sp,TestingWindow.Disciplines dis)
@@ -132,7 +130,6 @@ namespace QTP_Client
                 {
                     oneQuestion(_dis._arrayQuestion[i]);
                 }
-                
             }
 
             private void oneQuestion(TestingWindow.Question q)
@@ -180,7 +177,7 @@ namespace QTP_Client
                 if (q._answerUser == null)
                     return false;
 
-                for (int i = 0; i<q._answerUser.Length;i++)
+                for (int i = 0; i < q._answerUser.Length; i++)
                 {
                     if (q._answerUser[i] == key)
                         return true;
@@ -192,11 +189,18 @@ namespace QTP_Client
                 if (q._answerUser == null)
                     return false;
 
-                for (int i = 0; i < q._kTrueAnswer.Length; i++)
+                for (int i = 0; i < q._answerUser.Length; i++)
                 {
-                    if (q._kTrueAnswer[i] == key)
-                        return true;
+                    if (q._answerUser[i] == key)
+                    {
+                        for (int j = 0; j < q._kTrueAnswer.Length; j++)
+                        {
+                            if (q._kTrueAnswer[j] == key)
+                                return true;
+                        }
+                    }
                 }
+
                 return false;
             }
 
