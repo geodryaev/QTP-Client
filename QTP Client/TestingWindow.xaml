@@ -13,40 +13,89 @@
     <Window.CommandBindings>
         <CommandBinding Command="{x:Static local:TestingWindow.MyCommand }" Executed="CommandBinding_Executed"></CommandBinding>
     </Window.CommandBindings>
-    <Grid>
+    <Grid Background="#FFA8A8A8">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel x:Name="sp_navigations" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Width="390" Height="367" Background="Gray" Margin="0,39,45,0">
+        <StackPanel x:Name="sp_navigations" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Width="390" Height="273" Background="Gray" Margin="0,39,45,0">
             <WrapPanel x:Name="wr_panel" Width="400" Height="370"></WrapPanel>
         </StackPanel>
         <TextBlock x:Name="tb_tems" HorizontalAlignment="Left" Margin="56,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontFamily="Times New Roman" Height="23" Width="0">
-
         </TextBlock>
-        <TextBlock x:Name="tb_Question"  Padding="15" TextAlignment="Left" HorizontalAlignment="Left" Margin="76,203,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="203" Width="1346" FontSize="20" FontFamily="Times New Roman" Background="Gray"/>
+
+        <TextBlock Padding="15" TextAlignment="Left" HorizontalAlignment="Left" Margin="60,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="256" Width="1362" FontSize="20" FontFamily="Times New Roman" Background="#FFA8A8A8">
+        <Border Margin="5" Padding="5" BorderThickness="1"  Background="AntiqueWhite" CornerRadius="10">
+            <TextBlock x:Name="tb_Question" Text="" Height="104" Width="1343" TextWrapping="Wrap" FontSize="30"/>
+        </Border>
+        </TextBlock>
 
         <TextBlock x:Name="tb_time" HorizontalAlignment="Left" Margin="10,1027,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Height="27" Width="0"/>
-        <Button x:Name="b_next" Content="Ответить" HorizontalAlignment="Left" Margin="1697,1004,0,0" VerticalAlignment="Top" Height="36" Width="200" FontFamily="Times New Roman" FontSize="20" Click="b_next_Click"/>
-        <Label Content="Вопрос №" HorizontalAlignment="Left" Margin="72,124,0,0" VerticalAlignment="Top" FontSize="48" Height="74" Width="238"/>
-        <Label x:Name="labeNumber" Content="" HorizontalAlignment="Left" Margin="310,124,0,0" VerticalAlignment="Top" FontSize="48" Height="74" Width="100"/>
-        <Label x:Name="label_nameTems" Content="" HorizontalAlignment="Left" Margin="76,39,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.342,0.695" FontSize="48"/>
-        <Canvas Background="Gray" Margin="81,464,45,222" Height="370">
-            <CheckBox x:Name="cb1" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="132" Canvas.Top="37"/>
-            <TextBlock x:Name="tb1" HorizontalAlignment="Left" Background="White" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="1256" Height="51" Canvas.Left="152" Canvas.Top="19" PreviewMouseDown ="tb1_PreviewMouseDown"/>
-            <TextBlock x:Name="tb2" TextWrapping="Wrap" Background="White" Text="" Width="1256" Height="51" Canvas.Left="152" Canvas.Top="75"  HorizontalAlignment="Center" VerticalAlignment="Top" PreviewMouseDown ="tb2_PreviewMouseDown"/>
-            <TextBlock x:Name="tb3" TextWrapping="Wrap" Background="White" Text="" Width="1256" Height="51" Canvas.Left="152" Canvas.Top="131" HorizontalAlignment="Center" VerticalAlignment="Top" PreviewMouseDown ="tb3_PreviewMouseDown"/>
-            <TextBlock x:Name="tb4" TextWrapping="Wrap" Background="White" Text="" Width="1256" Height="51" Canvas.Left="152" Canvas.Top="187" HorizontalAlignment="Center" VerticalAlignment="Top" PreviewMouseDown ="tb4_PreviewMouseDown"/>
-            <TextBlock x:Name="tb5" TextWrapping="Wrap" Background="White" Text="" Width="1256" Height="51" Canvas.Left="152" Canvas.Top="243" HorizontalAlignment="Center" VerticalAlignment="Top" PreviewMouseDown ="tb5_PreviewMouseDown"/>
-            <TextBlock x:Name="tb6" TextWrapping="Wrap" Background="White" Text="" Width="1256" Height="51" Canvas.Left="152" Canvas.Top="298" HorizontalAlignment="Center" VerticalAlignment="Top" PreviewMouseDown ="tb6_PreviewMouseDown"/>
-            <CheckBox x:Name="cb2" Content="" Canvas.Left="132" Canvas.Top="93" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <CheckBox x:Name="cb3" Content="" Canvas.Left="132" Canvas.Top="149" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <CheckBox x:Name="cb4" Content="" Canvas.Left="132" Canvas.Top="205" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-            <CheckBox x:Name="cb5" Content="" Canvas.Left="132" Canvas.Top="261" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <CheckBox x:Name="cb6" Content="" Canvas.Left="132" Canvas.Top="316" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button x:Name="b_next" Content="Ответить" HorizontalAlignment="Left" Margin="1529,979,0,0" VerticalAlignment="Top" Height="64" Width="356" FontFamily="Times New Roman" FontSize="48" Click="b_next_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Label Content="Вопрос №" HorizontalAlignment="Left" Margin="76,125,0,0" VerticalAlignment="Top" FontSize="56" Height="72" Width="265" FontFamily="Times New Roman" FontWeight="Bold"/>
+        <Label x:Name="labeNumber" Content="" HorizontalAlignment="Left" Margin="346,124,0,0" VerticalAlignment="Top" FontSize="56" Height="74" Width="100" FontFamily="Times New Roman"/>
+        <Label x:Name="label_nameTems" Content="" HorizontalAlignment="Left" Margin="76,39,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.342,0.695" FontSize="56" FontFamily="Times New Roman"/>
+        <Canvas Background="Gray" Margin="81,339,35,149">
+            <CheckBox x:Name="cb1" Content="" Background="AntiqueWhite" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="56"/>
+            <CheckBox x:Name="cb2" Background="AntiqueWhite" Content="" Canvas.Left="10" Canvas.Top="152" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <CheckBox x:Name="cb3" Background="AntiqueWhite" Content="" Canvas.Left="10" Canvas.Top="247" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <CheckBox x:Name="cb4" Background="AntiqueWhite" Content="" Canvas.Left="10" Canvas.Top="342" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <CheckBox x:Name="cb5" Background="AntiqueWhite" Content="" Canvas.Left="10" Canvas.Top="437" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <CheckBox x:Name="cb6" Background="AntiqueWhite" Content="" Canvas.Left="10" Canvas.Top="532" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Background="Gray" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="1789" Height="100" Canvas.Left="5" Canvas.Top="14" PreviewMouseDown ="tb1_PreviewMouseDown">
+                    <Border x:Name="bb1" Margin="0" Padding="0" BorderThickness="0"   CornerRadius="10">
+                        <Border x:Name="b1" Margin="5" Padding="5" BorderThickness="1"  Background="AntiqueWhite" CornerRadius="10">
+                            <TextBlock x:Name="tb1" Text="" Height="74" Width="1782" Background="AntiqueWhite" TextWrapping="Wrap" FontSize="26" FontFamily="Times New Roman"/>
+                        </Border>
+                    </Border>
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Left" Background="Gray" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="1789" Height="100" Canvas.Left="5" Canvas.Top="110" PreviewMouseDown ="tb2_PreviewMouseDown">
+                    <Border x:Name="bb2" Margin="0" Padding="0" BorderThickness="0"   CornerRadius="10">
+                        <Border x:Name="b2" Margin="5" Padding="5" BorderThickness="1"  Background="AntiqueWhite" CornerRadius="10">
+                            <TextBlock x:Name="tb2" Text="" Height="73" Width="1771" TextWrapping="Wrap" FontSize="26" FontFamily="Times New Roman"/>
+                        </Border>
+                    </Border>
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Left" Background="Gray" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="1789" Height="100" Canvas.Left="5" Canvas.Top="205" PreviewMouseDown ="tb3_PreviewMouseDown">
+                    <Border x:Name="bb3" Padding="0" BorderThickness="0"   CornerRadius="10" Height="95">
+                    <Border x:Name="b3" Margin="5" Padding="5" BorderThickness="1"  Background="AntiqueWhite" CornerRadius="10">
+                        <TextBlock x:Name="tb3" Text="" Height="83" Width="1798" TextWrapping="Wrap" FontSize="26" FontFamily="Times New Roman"/>
+                    </Border>
+                    </Border>
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Left" Background="Gray" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="1789" Height="100" Canvas.Left="5" Canvas.Top="300" PreviewMouseDown ="tb4_PreviewMouseDown">
+                    <Border x:Name="bb4" Margin="0" Padding="0" BorderThickness="0"  CornerRadius="10">
+                    <Border x:Name="b4" Margin="5" Padding="5" BorderThickness="1"  Background="AntiqueWhite" CornerRadius="10">
+                        <TextBlock x:Name="tb4" Text="" Height="70" Width="1811" TextWrapping="Wrap" FontSize="26" FontFamily="Times New Roman"/>
+                    </Border>
+                    </Border>
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Left" Background="Gray" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="1789" Height="100" Canvas.Left="5" Canvas.Top="395" PreviewMouseDown ="tb5_PreviewMouseDown">
+                    <Border x:Name="bb5" Margin="0" Padding="0" BorderThickness="0"   CornerRadius="10">
+                        <Border x:Name="b5" Margin="5" Padding="5" BorderThickness="1"  Background="AntiqueWhite" CornerRadius="10">
+                            <TextBlock x:Name="tb5" Text="" Height="70" Width="1811" TextWrapping="Wrap" FontSize="26" FontFamily="Times New Roman"/>
+                        </Border>
+                    </Border>
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Left" Background="Gray" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="1789" Height="100" Canvas.Left="5" Canvas.Top="490" PreviewMouseDown ="tb6_PreviewMouseDown">
+                    <Border x:Name="bb6" Margin="0" Padding="0" BorderThickness="0"   CornerRadius="10">
+                        <Border x:Name="b6" Margin="5" Padding="5" BorderThickness="1"  Background="AntiqueWhite" CornerRadius="10">
+                            <TextBlock x:Name="tb6" Text="" Height="83" Width="1799" TextWrapping="Wrap" FontSize="26" FontFamily="Times New Roman"/>
+                        </Border>
+                    </Border>
+            </TextBlock>
+
+
+
 
         </Canvas>
-        <TextBlock x:Name="tb_timer" HorizontalAlignment="Left" Margin="10,1022,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="48" Width="604" FontSize="36"/>
+        <TextBlock x:Name="tb_timer" HorizontalAlignment="Left" Margin="86,987,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="48" Width="604" FontSize="36"/>
     </Grid>
 </Window>

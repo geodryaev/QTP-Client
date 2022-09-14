@@ -24,7 +24,7 @@ namespace QTP_Client
                 read = comm.ExecuteReader();
                 while (read.Read())
                 {
-                    cb_numberUnit.Items.Add(read.GetValue(1).ToString());
+                    //cb_numberUnit.Items.Add(read.GetValue(1).ToString());
                 }
                 read.Close();
                 comm.CommandText = "SELECT * FROM t_zvezda";
@@ -45,7 +45,7 @@ namespace QTP_Client
             //{
             //    MessageBox.Show("Введите строго по макету Иванов А.А.");
             //}
-            Wait form = new Wait(cb_unit.Text, cb_numberUnit.Text, cb_zvezda.Text, tb_surename.Text.Trim() + " " + tb_nameName.Text.Trim() + "." + tb_nameMat.Text.Trim()+".");
+            Wait form = new Wait(cb_unit.Text, "", cb_zvezda.Text, tb_surename.Text.Trim() + " " + tb_nameName.Text.Trim() + "." + tb_nameMat.Text.Trim()+".");
             form.Show();
             Close();
 

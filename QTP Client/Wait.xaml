@@ -6,14 +6,18 @@
         xmlns:local="clr-namespace:QTP_Client"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-        Title="Wait" Height="410" Width="595">
-    <Grid Margin="0,0,0,3">
+        Title="Выбор темы тестирования" Height="413" Width="595">
+    <Grid  Background="#FD888888">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TextBlock HorizontalAlignment="Left" TextAlignment="Center" Margin="363,10,0,0" TextWrapping="Wrap" Text="Выберете дисциплины" VerticalAlignment="Top" Width="227"/>
-        <StackPanel x:Name="panel" Width="250" HorizontalAlignment ="Left">
-        </StackPanel>
-        <Button x:Name="b_go" Content="Начать тестирование" HorizontalAlignment="Left" Margin="386,314,0,0" VerticalAlignment="Top" Width="164" Click="b_go_Click"/>
+        <TextBlock HorizontalAlignment="Left" TextAlignment="Center" Margin="303,60,0,0" TextWrapping="Wrap" Text="Выбор дисциплины" VerticalAlignment="Top" Width="242" FontFamily="Times New Roman" FontSize="24"/>
+            <ScrollViewer>
+            <StackPanel x:Name="panel" Width="250" HorizontalAlignment ="Left" Margin="0,23,0,0">
+            </StackPanel>
+        </ScrollViewer>
+        <Button x:Name="b_go" Content="Начать тестирование" HorizontalAlignment="Left" Margin="298,304,0,0" Width="252" Click="b_go_Click" FontFamily="Times New Roman" FontSize="24" Background="#FF7BD87C" Height="32" VerticalAlignment="Top"/>
+        
+
     </Grid>
 </Window>

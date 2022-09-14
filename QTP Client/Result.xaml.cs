@@ -21,8 +21,10 @@ namespace QTP_Client
         string unit, numberUnit, zvezda, fullName;
         string[] tems;
         int countNextTems;
+        bool test;
         public Result(TestingWindow.Disciplines _now, string _unit, string _nameUnit, string _zvezda, string _fullName, int _countTems, string[] _tems)
         {
+            test = false;
             InitializeComponent();
             tems = _tems;
             countNextTems = _countTems;
@@ -53,8 +55,39 @@ namespace QTP_Client
                 bt_next.Content = "Закончить тестирование";
             }
             result.Text += "Тема: "+now._nameDisciplines+"\nВаша оцека : "+assessment;
-            fullText allResult = new fullText(strSQLConnection(), SP, now);
+            fullText allResult = new fullText(strSQLConnection(), SP, now, assessment);
             allResult.sqlUpload(unit, numberUnit, zvezda, fullName);
+        }
+        public Result(TestingWindow.Disciplines _now, int _countTems, string[] _tems)
+        {
+            test = true;
+            InitializeComponent();
+            tems = _tems;
+            countNextTems = _countTems;
+            this.now = _now;
+            int countTrue = getNumberTrueAnswer(now);
+            string assessment = "2";
+            countTrue = now._arrayQuestion.Length - countTrue;
+            if (countTrue <= now._free)
+            {
+                assessment = "3";
+            }
+            if (countTrue <= now._four)
+            {
+                assessment = "4";
+            }
+            if (countTrue <= now._five)
+            {
+                assessment = "5";
+            }
+
+            countNextTems++;
+            if (countNextTems >= tems.Length)
+            {
+                bt_next.Content = "Закончить тестирование";
+            }
+            result.Text += "Тема: " + now._nameDisciplines + "\nВаша оцека : " + assessment;
+            fullText allResult = new fullText(strSQLConnection(), SP, now,assessment);
         }
         public int getNumberTrueAnswer(TestingWindow.Disciplines dis)
         {
@@ -81,19 +114,39 @@ namespace QTP_Client
 
             return true;
         }
-
         private void bt_next_Click(object sender, RoutedEventArgs e)
         {
 
             if (countNextTems < tems.Length)
             {
-                TestingWindow form = new TestingWindow(unit, numberUnit, zvezda, fullName, tems, countNextTems);
-                form.Show();
-                Close();
+                if (test)
+                {
+                    TestingWindow form = new TestingWindow(tems, countNextTems);
+                    form.Show();
+                    Close();
+                }
+                else
+                {
+                    TestingWindow form = new TestingWindow(unit, numberUnit, zvezda, fullName, tems, countNextTems);
+                    form.Show();
+                    Close();
+                }
             }
             else
             {
-                Close();
+                if (test)
+                {
+                    MainWindow form = new MainWindow();
+                    form.Show();
+                    Close();
+                }
+                else
+                {
+                    Main form = new Main();
+                    form.Show();
+                    Close();
+                }
+                
             }
         }
 
@@ -114,16 +167,17 @@ namespace QTP_Client
          
         class fullText
         {
-            public fullText(string con, StackPanel sp,TestingWindow.Disciplines dis)
+            public fullText(string con, StackPanel sp,TestingWindow.Disciplines dis, string assesment)
             {
+                _assesment = assesment;
                 _con = new SqlConnection(con);
                 _dis = dis;
                 _sp = sp;
                 _countQ = 1;
                 _tb = new TextBlock[0];
                 setText();
+                _assesment = assesment;
             }
-
             public void setText()
             {
                 for (int i = 0; i < _dis._arrayQuestion.Length; i++) 
@@ -131,11 +185,10 @@ namespace QTP_Client
                     oneQuestion(_dis._arrayQuestion[i]);
                 }
             }
-
             private void oneQuestion(TestingWindow.Question q)
             {
                 newTB();
-                _tb[_tb.Length-1].Text +="\n\n"+ Convert.ToString(_countQ) + ". " + q._nameQuestrion+"\n\n";
+                _tb[_tb.Length-1].Text += "\n\n\n" + Convert.ToString(_countQ) + ". " + q._nameQuestrion+"\n";
                 _tb[_tb.Length-1].FontSize = 20;
                 _countQ++;
                 allAnswer(q);
@@ -155,8 +208,12 @@ namespace QTP_Client
                     {
                         if (read.GetValue(0).ToString() == q._kAnswers[i])
                         {
-                            _tb[_tb.Length - 1].Text += "\n\t " + Convert.ToString(i + 1) + ". " + read.GetValue(2).ToString();
+                            _tb[_tb.Length - 1].Text += "\n " + Convert.ToString(i + 1) + ". " + read.GetValue(2).ToString();
                         }
+                    }
+                    if (blue(q, q._kAnswers[i]))
+                    {
+                        _tb[_tb.Length - 1].TextDecorations = TextDecorations.Underline;
                     }
                     if (red(q, q._kAnswers[i]))
                     {
@@ -184,6 +241,20 @@ namespace QTP_Client
                 }
                 return false;
             }
+            private bool blue(TestingWindow.Question q, string str)
+            {
+                if (q._answerUser == null)
+                    return false;
+
+                for (int i = 0; i < q._kTrueAnswer.Length; i++) 
+                {
+                    if (q._kTrueAnswer[i] == str)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
             private bool green(TestingWindow.Question q, string key)
             {
                 if (q._answerUser == null)
@@ -200,10 +271,8 @@ namespace QTP_Client
                         }
                     }
                 }
-
                 return false;
             }
-
             private void newTB()
             {
                 TextBlock[] n = new TextBlock[_tb.Length + 1];
@@ -219,8 +288,7 @@ namespace QTP_Client
             public void sqlUpload(string _unit, string _nameUnit, string _zvezda, string _fullName)
             {
                 _con.Open();
-                SqlCommand com = new SqlCommand("INSERT INTO t_result (Unit, numberUnit, zvezda, Name, data, g1, g2) VALUES (\'"+_unit+"\', \'"+_nameUnit+"\', \'"+_zvezda+"\', \'"+_fullName+"\', \'"+DateTime.Now.ToString()+"\', \'"+getG1()+"\', \'"+getG2()+"\')");
-                string str = "INSERT INTO t_result (Unit, numberUnit, zvezda, Name, data, g1, g2) VALUES (\"" + _unit + "\", \"" + _nameUnit + "\", \"" + _fullName + "\", \"" + getG1() + "\", \"" + getG2() + "\")";
+                SqlCommand com = new SqlCommand("INSERT INTO t_result (Unit, numberUnit, zvezda, Name, data, g1, g2, ozenka) VALUES (\'"+_unit+"\', \'"+_nameUnit+"\', \'"+_zvezda+"\', \'"+_fullName+"\', \'"+DateTime.Now.ToString()+"\', \'"+getG1()+"\', \'"+getG2()+"', '"+ _assesment + "')");
                 com.Connection = _con;
                 com.ExecuteNonQuery();
                 _con.Close();
@@ -261,6 +329,7 @@ namespace QTP_Client
 
                 return answer;
             }
+            private string _assesment;
             private TextBlock[] _tb;
             private StackPanel _sp;
             private int _countQ; 

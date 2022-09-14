@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:QTP_Client"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-        Title="QTP Client" Height="250" Width="400">
-    
-    <Grid>
+        Title="QTP Client" Height="400" Width="700">
+
+    <Grid  Background="#FF656565">
         <Menu Height="25" VerticalAlignment="Top">
             <MenuItem Header="Настройки" Height="25">
                 <MenuItem Header="Подключение к БД" Click="MenuItem_Click"></MenuItem>
@@ -16,8 +16,9 @@
                 <MenuItem x:Name="m_exit" Header="Exit" Click="m_exit_Click"></MenuItem>
             </MenuItem>
         </Menu>
-        <Button x:Name="b_conncet" Content="Подключиться" HorizontalAlignment="Left" Margin="275,0,0,0" VerticalAlignment="Center" Width="95" Click="b_conncet_Click"/>
-        <PasswordBox x:Name="pb_passwrod"  HorizontalAlignment="Left" Margin="50,0,0,0" VerticalAlignment="Center" Width="186" Height="20"/>
+        <Button x:Name="b_conncet" Content="Начать тест" Margin="415,87,46,0" VerticalAlignment="Top" Click="b_conncet_Click" FontFamily="Times New Roman" FontSize="36" Height="59" Background="#FF7BD87C"/>
+        <PasswordBox x:Name="pb_passwrod"  HorizontalAlignment="Left" Margin="46,87,0,0"  VerticalAlignment="Top" Width="354" Height="59" FontSize="36"/>
+        <Button x:Name="bt_test" Content="Учебное тестирование" Margin="46,177,46,0" VerticalAlignment="Top" Click="bt_test_Click" Height="133" FontFamily="Times New Roman" FontSize="48" Background="#FFC3C3C3"/>
 
 
     </Grid>

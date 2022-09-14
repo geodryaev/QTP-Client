@@ -52,5 +52,12 @@ namespace QTP_Client
                 MessageBox.Show("Ошибка подключения к серверу, провертье путь к серверу" + Properties.Settings.Default.pathSQL); 
             }
         }
+
+        private void bt_test_Click(object sender, RoutedEventArgs e)
+        {
+            Wait form = new Wait();
+            form.Show();
+            Close();
+        }
     }
 }

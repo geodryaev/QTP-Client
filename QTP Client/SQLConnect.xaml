@@ -7,7 +7,7 @@
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
         Title="QTP Client" Height="150" Width="500">
-    <Grid>
+    <Grid Background="#FF9A9A9A">
         <TextBox x:Name="tb_sqlPath" HorizontalAlignment="Left" Margin="25,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="287"/>
         <Button x:Name="b_go" Content="Применить" HorizontalAlignment="Left" Margin="345,0,0,0" VerticalAlignment="Center" Width="133" Click="b_go_Click"/>
 
