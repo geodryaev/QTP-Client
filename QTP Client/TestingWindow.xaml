@@ -19,20 +19,20 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel x:Name="sp_navigations" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Width="390" Height="273" Background="Gray" Margin="0,39,45,0">
+        <StackPanel x:Name="sp_navigations" Orientation="Horizontal" VerticalAlignment="Top" Height="273" Background="Gray" Margin="0,39,45,0" HorizontalAlignment="Right" Width="390">
             <WrapPanel x:Name="wr_panel" Width="400" Height="370"></WrapPanel>
         </StackPanel>
         <TextBlock x:Name="tb_tems" HorizontalAlignment="Left" Margin="56,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontFamily="Times New Roman" Height="23" Width="0">
         </TextBlock>
 
-        <TextBlock Padding="15" TextAlignment="Left" HorizontalAlignment="Left" Margin="60,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="256" Width="1362" FontSize="20" FontFamily="Times New Roman" Background="#FFA8A8A8">
+        <TextBlock Padding="15" TextAlignment="Left" HorizontalAlignment="Right" Margin="0,0,498,649" TextWrapping="Wrap" Width="1362" FontSize="20" FontFamily="Times New Roman" Background="#FFA8A8A8" Height="256" VerticalAlignment="Bottom">
         <Border Margin="5" Padding="5" BorderThickness="1"  Background="AntiqueWhite" CornerRadius="10">
             <TextBlock x:Name="tb_Question" Text="" Height="104" Width="1343" TextWrapping="Wrap" FontSize="30"/>
         </Border>
         </TextBlock>
 
         <TextBlock x:Name="tb_time" HorizontalAlignment="Left" Margin="10,1027,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Height="27" Width="0"/>
-        <Button x:Name="b_next" Content="Ответить" HorizontalAlignment="Left" Margin="1529,979,0,0" VerticalAlignment="Top" Height="64" Width="356" FontFamily="Times New Roman" FontSize="48" Click="b_next_Click">
+        <Button x:Name="b_next" Content="Ответить" HorizontalAlignment="Left" Margin="1529,979,0,37" Width="356" FontFamily="Times New Roman" FontSize="48" Click="b_next_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="15"/>
@@ -42,7 +42,7 @@
         <Label Content="Вопрос №" HorizontalAlignment="Left" Margin="76,125,0,0" VerticalAlignment="Top" FontSize="56" Height="72" Width="265" FontFamily="Times New Roman" FontWeight="Bold"/>
         <Label x:Name="labeNumber" Content="" HorizontalAlignment="Left" Margin="346,124,0,0" VerticalAlignment="Top" FontSize="56" Height="74" Width="100" FontFamily="Times New Roman"/>
         <Label x:Name="label_nameTems" Content="" HorizontalAlignment="Left" Margin="76,39,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.342,0.695" FontSize="56" FontFamily="Times New Roman"/>
-        <Canvas Background="Gray" Margin="81,339,35,149">
+        <Canvas Background="Gray" Margin="0,339,35,0" Height="592" VerticalAlignment="Top" HorizontalAlignment="Right" Width="1804">
             <CheckBox x:Name="cb1" Content="" Background="AntiqueWhite" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="56"/>
             <CheckBox x:Name="cb2" Background="AntiqueWhite" Content="" Canvas.Left="10" Canvas.Top="152" HorizontalAlignment="Center" VerticalAlignment="Top"/>
             <CheckBox x:Name="cb3" Background="AntiqueWhite" Content="" Canvas.Left="10" Canvas.Top="247" HorizontalAlignment="Center" VerticalAlignment="Top"/>

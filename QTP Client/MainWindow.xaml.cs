@@ -35,7 +35,7 @@ namespace QTP_Client
                     connect.Open();
                     connect.Close();
                 }
-                if(true)
+                if(true)//пароль
                 {
                     Main form = new Main();
                     form.Show();
@@ -55,9 +55,22 @@ namespace QTP_Client
 
         private void bt_test_Click(object sender, RoutedEventArgs e)
         {
-            Wait form = new Wait();
-            form.Show();
-            Close();
+            try
+            {
+                using (SqlConnection connect = new SqlConnection(strSQLConnection()))
+                {
+                    connect.Open();
+                    connect.Close(); 
+                }
+                Wait form = new Wait();
+                form.Show();
+                Close();
+            }
+            catch
+            {
+                MessageBox.Show("Нет подключиения к БД, пожалуйста обратитесь к администратору данного ПО");
+            }
+            
         }
     }
 }

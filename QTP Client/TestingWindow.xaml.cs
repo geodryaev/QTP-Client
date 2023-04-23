@@ -858,6 +858,10 @@ namespace QTP_Client
                 cb6.IsChecked = false;
             }
         }
+        private void SetNormalSize()
+        {
+
+        }
 
         
 
