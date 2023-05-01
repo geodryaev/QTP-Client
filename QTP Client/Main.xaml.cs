@@ -41,16 +41,42 @@ namespace QTP_Client
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //if (tb_nameMat.Text.Length != 1 || tb_surename.Text.Length < 2 || tb_nameName.Text.Length != 1 || !(tb_surename.Text[0] > 'А' && tb_surename.Text[0] < 'Я') || !(tb_nameMat.Text[0] > 'А' && tb_nameMat.Text[0] < 'Я') || !(tb_nameName.Text[0] > 'А' && tb_nameName.Text[0] < 'Я'))
-            //{
-            //    MessageBox.Show("Введите строго по макету Иванов А.А.");
-            //}
-            Wait form = new Wait(cb_unit.Text, "", cb_zvezda.Text, tb_surename.Text.Trim() + " " + tb_nameName.Text.Trim() + "." + tb_nameMat.Text.Trim()+".");
-            form.Show();
-            Close();
-
+            if (!((CheackSurname(tb_surename.Text.Trim())) && (CheackNameOrSecondName(tb_nameMat.Text.Trim())) &&(CheackNameOrSecondName(tb_nameName.Text.Trim()))))
+            {
+                MessageBox.Show("Введите строго по макету Иванов А.А.");
+            }
+            else
+            {
+                Wait form = new Wait(cb_unit.Text, "", cb_zvezda.Text, tb_surename.Text.Trim() + " " + tb_nameName.Text.Trim() + "." + tb_nameMat.Text.Trim() + ".");
+                form.Show();
+                Close();
+            }
         }
+        public bool CheackSurname (string surname)
+        {
+            if (surname.Length < 2)
+                return false;
 
+            for (int i = 0; i < surname.Length; i++)
+            {
+                if ((i == 0) && !((surname[i] >= 'А') && (surname[i] <= 'Я')))
+                    return false;
+                if ((i != 0) && !((surname[i] >= 'а') && (surname[i] <= 'я')))
+                    return false;
+            }
+
+            return true;
+        }
+        public bool CheackNameOrSecondName (string name)
+        {
+            if (name.Length != 1)
+                return false;
+
+            if (!((name[0] >= 'А') && (name[0] <= 'Я')))
+                return false;
+
+            return true;
+        }
         public string strSQLConnection()
         {
             return "Server=" + Properties.Settings.Default.pathSQL + ";Initial Catalog =QTPDB; User ID = sa; Password = qwerty12";
