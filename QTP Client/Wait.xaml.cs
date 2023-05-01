@@ -66,7 +66,7 @@ namespace QTP_Client
                         checkBoxes[count].VerticalAlignment = VerticalAlignment.Center;
                         checkBoxes[count].VerticalContentAlignment = VerticalAlignment.Center;
                         checkBoxes[count].FontFamily = new System.Windows.Media.FontFamily("Times New Roman");
-                        checkBoxes[count].Content = read.GetString(1);
+                        checkBoxes[count].Content = strForCheckBoxes(read.GetString(1));
                         checkBoxes[count].Margin = new Thickness(30, 10, 0, 10);
                         panel.Children.Add(checkBoxes[count]);
                         count++;
@@ -76,6 +76,22 @@ namespace QTP_Client
                 read.Close();
                 connect.Close();
             }
+        }
+        public string strForCheckBoxes(string str)
+        {
+            int count = 0;
+            string answer = "";
+            for (int i = 0; i < str.Length; i++) 
+            {
+                answer += str[i].ToString();
+                count++;
+                if (count == 45)
+                { 
+                    answer += "\n";
+                    count = 0;
+                }
+            }
+            return answer;
         }
         public string strSQLConnection()
         {
