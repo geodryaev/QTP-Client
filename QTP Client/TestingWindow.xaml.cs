@@ -525,7 +525,7 @@ namespace QTP_Client
             }
             string [] arrayAnswerUser = new string [count];
             count = 0;
-            for (int i =0; i < 6; i ++)
+            for (int i =0; i < 6; i++)
             {
                 if (arrayDB[i]._keyAnswer != null && arrayDB[i]._cb.IsChecked == true)
                 {
@@ -858,12 +858,32 @@ namespace QTP_Client
                 cb6.IsChecked = false;
             }
         }
-        private void SetNormalSize()
+        public double getAllMin(Disciplines a)
         {
+            double answer = 0;
+            using (SqlConnection c = new SqlConnection(strSQLConnection()))
+            {
+                c.Open();
+                SqlCommand command = new SqlCommand("SELECT * FROM t_tems");
+                command.Connection = c;
+                SqlDataReader read = command.ExecuteReader();
+                while (read.Read())
+                {
+                    if (read.GetValue(1).ToString() == a._nameDisciplines)
+                    {
 
+                        answer = Convert.ToDouble(read.GetValue(5).ToString()) * Convert.ToDouble(read.GetValue(6).ToString());
+                    }
+                }
+                read.Close();
+                c.Close();
+
+            }
+            return answer;
         }
 
-        
+
+
 
         public struct Question
         {
@@ -884,29 +904,6 @@ namespace QTP_Client
         public string strSQLConnection()
         {
             return "Server=" + Properties.Settings.Default.pathSQL + ";Initial Catalog =QTPDB; User ID = sa; Password = qwerty12";
-        }
-        public double getAllMin(Disciplines a)
-        {
-            double  answer = 0;
-            using (SqlConnection c = new SqlConnection(strSQLConnection()))
-            {
-                c.Open();
-                SqlCommand command = new SqlCommand("SELECT * FROM t_tems");
-                command.Connection = c;
-                SqlDataReader read = command.ExecuteReader();
-                while (read.Read())
-                {
-                    if (read.GetValue(1).ToString() == a._nameDisciplines)
-                    {
-
-                        answer = Convert.ToDouble(read.GetValue(5).ToString()) * Convert.ToDouble(read.GetValue(6).ToString());
-                    }
-                }
-                read.Close();
-                c.Close();
-
-            }
-            return answer;
         }
     }
 }
