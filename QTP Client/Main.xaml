@@ -9,13 +9,17 @@
         WindowStartupLocation="CenterScreen"
         Title="Main" Height="450" Width="880">
     <Grid Background="#FD888888" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="149*"/>
+            <RowDefinition Height="68*"/>
+        </Grid.RowDefinitions>
         <TextBlock HorizontalAlignment="Left" Margin="52,64,0,0" TextWrapping="Wrap" Text="Подразделение" VerticalAlignment="Top" FontFamily="Times New Roman" FontSize="24"/>
         <ComboBox x:Name="cb_unit" HorizontalAlignment="Left" Margin="30,101,0,0" VerticalAlignment="Top" Width="199" Text="" Height="34" FontFamily="Times New Roman" FontSize="20" TextBlock.FontFamily="Times New Roman" TextBlock.FontSize="24" />
         <TextBlock HorizontalAlignment="Left" Margin="268,64,0,0" TextWrapping="Wrap" Text="Воинское звание" VerticalAlignment="Top" FontFamily="Times New Roman" FontSize="24"/>
         <ComboBox x:Name="cb_zvezda" HorizontalAlignment="Left" Margin="256,101,0,0" VerticalAlignment="Top" Width="196" FontFamily="Times New Roman" FontSize="20" TextBlock.FontFamily="Times New Roman" TextBlock.FontSize="24" Height="34" BorderBrush="DimGray" Background="#FFA4A4A4"/>
         <TextBlock HorizontalAlignment="Left" Margin="482,64,0,0" TextAlignment="Center" TextWrapping="Wrap" Text="Ф. И. О." VerticalAlignment="Top" FontFamily="Times New Roman" FontSize="24" Width="362"/>
         <TextBox x:Name="tb_surename" HorizontalAlignment="Left" Margin="482,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="276" Height="34" FontFamily="Times New Roman" FontSize="20" TextBlock.FontFamily="Times New Roman" TextBlock.FontSize="24"/>
-        <Button Content="Начать тестирование" HorizontalAlignment="Center" Margin="0,251,0,0" VerticalAlignment="Top" Width="446" Click="Button_Click" FontFamily="Times New Roman"  FontSize="36" TextBlock.FontFamily="Times New Roman" Height="82" Background="#FF7BD87C"/>
+
         <TextBlock HorizontalAlignment="Left" Margin="800,113,0,0" TextWrapping="Wrap" Text="." VerticalAlignment="Top" FontFamily="Times New Roman" FontSize="24" Height="41" Width="9"/>
         <TextBox x:Name="tb_nameName" HorizontalAlignment="Left" Margin="769,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31" Height="34" FontFamily="Times New Roman" FontSize="20" TextBlock.FontFamily="Times New Roman" TextBlock.FontSize="24"/>
         <TextBlock HorizontalAlignment="Left" Margin="839,113,0,0" TextWrapping="Wrap" Text="." VerticalAlignment="Top" FontFamily="Times New Roman" FontSize="24" Height="41" Width="10"/>
@@ -23,5 +27,6 @@
         <TextBlock HorizontalAlignment="Left" Margin="482,140,0,0" TextAlignment="Center" TextWrapping="Wrap" Text="Иванов" VerticalAlignment="Top" FontFamily="Times New Roman" FontSize="24" Width="86"/>
         <TextBlock HorizontalAlignment="Left" Margin="814,140,0,0" TextAlignment="Center" TextWrapping="Wrap" Text="И ." VerticalAlignment="Top" FontFamily="Times New Roman" FontSize="24" Width="31"/>
         <TextBlock HorizontalAlignment="Left" Margin="776,140,0,0" TextAlignment="Center" TextWrapping="Wrap" Text="И ." VerticalAlignment="Top" FontFamily="Times New Roman" FontSize="24" Width="30"/>
+        <Button Content="Начать тестирование" HorizontalAlignment="Center" Margin="0,251,0,0" VerticalAlignment="Top" Width="446" Click="Button_Click" FontFamily="Times New Roman"  FontSize="36" TextBlock.FontFamily="Times New Roman" Height="82" Background="#FF7BD87C" Grid.RowSpan="2"/>
     </Grid>
 </Window>
