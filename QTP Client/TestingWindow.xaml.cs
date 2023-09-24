@@ -862,13 +862,6 @@ namespace QTP_Client
             
 
         }
-
-        private void PressButton()
-        {
-
-        }
-
-
         private void tb1_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             if (cb1.IsChecked == false)
