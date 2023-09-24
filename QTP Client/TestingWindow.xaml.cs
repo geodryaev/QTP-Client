@@ -31,6 +31,12 @@ namespace QTP_Client
         string unit, numberUnit, zvezda, fullName;
         string[] nameTems;
         public static RoutedCommand MyCommand = new RoutedCommand();
+        public static RoutedCommand BindFirst = new RoutedCommand();
+        public static RoutedCommand BindSecond = new RoutedCommand();
+        public static RoutedCommand BindTree = new RoutedCommand();
+        public static RoutedCommand BindFour = new RoutedCommand();
+        public static RoutedCommand BindFive = new RoutedCommand();
+        public static RoutedCommand BindSix = new RoutedCommand();
         bool globalTime, test;
 
         public TestingWindow(string _unit, string _nameUnit, string _zvezda, string _fullName, string[] _nameTems)
@@ -38,7 +44,13 @@ namespace QTP_Client
             InitializeComponent();
             globalTime = false;
             test = false;
-            MyCommand.InputGestures.Add(new KeyGesture(Key.Enter));
+            MyCommand.InputGestures.Add(new KeyGesture(Key.Enter, ModifierKeys.None));
+            BindFirst.InputGestures.Add(new KeyGesture(Key.D1, ModifierKeys.None));
+            BindSecond.InputGestures.Add(new KeyGesture(Key.D2, ModifierKeys.None));
+            BindTree.InputGestures.Add(new KeyGesture(Key.D3, ModifierKeys.None));
+            BindFour.InputGestures.Add(new KeyGesture(Key.D4, ModifierKeys.None));
+            BindFive.InputGestures.Add(new KeyGesture(Key.D5, ModifierKeys.None));
+            BindSix.InputGestures.Add(new KeyGesture(Key.D6, ModifierKeys.None));
             arrayDB  =new DoublFuck[6];
             arrayDB[0]._cb = cb1;
             arrayDB[0]._tb = tb1;
@@ -113,7 +125,13 @@ namespace QTP_Client
             InitializeComponent();
             globalTime = false;
             test = true;
-            MyCommand.InputGestures.Add(new KeyGesture(Key.Enter));
+            MyCommand.InputGestures.Add(new KeyGesture(Key.Enter, ModifierKeys.None));
+            BindFirst.InputGestures.Add(new KeyGesture(Key.NumPad1, ModifierKeys.None));
+            BindSecond.InputGestures.Add(new KeyGesture(Key.NumPad2, ModifierKeys.None));
+            BindTree.InputGestures.Add(new KeyGesture(Key.NumPad3, ModifierKeys.None));
+            BindFour.InputGestures.Add(new KeyGesture(Key.NumPad4, ModifierKeys.None));
+            BindFive.InputGestures.Add(new KeyGesture(Key.NumPad5, ModifierKeys.None));
+            BindSix.InputGestures.Add(new KeyGesture(Key.NumPad6, ModifierKeys.None));
             arrayDB = new DoublFuck[6];
             arrayDB[0]._cb = cb1;
             arrayDB[0]._tb = tb1;
@@ -184,7 +202,13 @@ namespace QTP_Client
             InitializeComponent();
             globalTime = false;
             test = false;
-            MyCommand.InputGestures.Add(new KeyGesture(Key.Enter));
+            MyCommand.InputGestures.Add(new KeyGesture(Key.Enter, ModifierKeys.None));
+            BindFirst.InputGestures.Add(new KeyGesture(Key.D1, ModifierKeys.None));
+            BindSecond.InputGestures.Add(new KeyGesture(Key.D2, ModifierKeys.None));
+            BindTree.InputGestures.Add(new KeyGesture(Key.D3, ModifierKeys.None));
+            BindFour.InputGestures.Add(new KeyGesture(Key.D4, ModifierKeys.None));
+            BindFive.InputGestures.Add(new KeyGesture(Key.D5, ModifierKeys.None));
+            BindSix.InputGestures.Add(new KeyGesture(Key.D6, ModifierKeys.None));
             arrayDB = new DoublFuck[6];
             arrayDB[0]._cb = cb1;
             arrayDB[0]._tb = tb1;
@@ -258,7 +282,13 @@ namespace QTP_Client
             InitializeComponent();
             globalTime = false;
             test = true;
-            MyCommand.InputGestures.Add(new KeyGesture(Key.Enter));
+            MyCommand.InputGestures.Add(new KeyGesture(Key.Enter, ModifierKeys.None));
+            BindFirst.InputGestures.Add(new KeyGesture(Key.D1, ModifierKeys.None));
+            BindSecond.InputGestures.Add(new KeyGesture(Key.D2, ModifierKeys.None));
+            BindTree.InputGestures.Add(new KeyGesture(Key.D3, ModifierKeys.None));
+            BindFour.InputGestures.Add(new KeyGesture(Key.D4, ModifierKeys.None));
+            BindFive.InputGestures.Add(new KeyGesture(Key.D5, ModifierKeys.None));
+            BindSix.InputGestures.Add(new KeyGesture(Key.D6, ModifierKeys.None));
             arrayDB = new DoublFuck[6];
             arrayDB[0]._cb = cb1;
             arrayDB[0]._tb = tb1;
@@ -778,6 +808,67 @@ namespace QTP_Client
         {
             b_next.RaiseEvent(new RoutedEventArgs(Button.ClickEvent)); 
         }
+
+        private void Button_t1(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (tb1.Visibility == Visibility.Visible)
+            {
+                MouseButtonEventArgs a = new MouseButtonEventArgs(Mouse.PrimaryDevice, Environment.TickCount, MouseButton.Left);
+                tb1_PreviewMouseDown(sender, a);
+            }
+        }
+        private void Button_t2(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (tb2.Visibility == Visibility.Visible)
+            {
+                MouseButtonEventArgs a = new MouseButtonEventArgs(Mouse.PrimaryDevice, Environment.TickCount, MouseButton.Left);
+                tb2_PreviewMouseDown(sender, a);
+            }
+        }
+        private void Button_t3(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (tb3.Visibility == Visibility.Visible)
+            {
+                MouseButtonEventArgs a = new MouseButtonEventArgs(Mouse.PrimaryDevice, Environment.TickCount, MouseButton.Left);
+                tb3_PreviewMouseDown(sender, a);
+            }
+
+        }
+        private void Button_t4(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (tb4.Visibility == Visibility.Visible)
+            {
+                MouseButtonEventArgs a = new MouseButtonEventArgs(Mouse.PrimaryDevice, Environment.TickCount, MouseButton.Left);
+                tb4_PreviewMouseDown(sender, a);
+            }
+
+        }
+        private void Button_t5(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (tb5.Visibility == Visibility.Visible)
+            {
+                MouseButtonEventArgs a = new MouseButtonEventArgs(Mouse.PrimaryDevice, Environment.TickCount, MouseButton.Left);
+                tb5_PreviewMouseDown(sender, a);
+            }
+
+        }
+        private void Button_t6(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (tb6.Visibility == Visibility.Visible)
+            {
+                MouseButtonEventArgs a = new MouseButtonEventArgs(Mouse.PrimaryDevice, Environment.TickCount, MouseButton.Left);
+                tb6_PreviewMouseDown(sender, a);
+            }
+            
+
+        }
+
+        private void PressButton()
+        {
+
+        }
+
+
         private void tb1_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             if (cb1.IsChecked == false)
@@ -858,6 +949,8 @@ namespace QTP_Client
                 cb6.IsChecked = false;
             }
         }
+
+
         public double getAllMin(Disciplines a)
         {
             double answer = 0;

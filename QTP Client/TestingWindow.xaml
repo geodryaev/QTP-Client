@@ -12,6 +12,12 @@
         Title="QTP-Client" Width="1920" Height="1080" WindowStyle="None">
     <Window.CommandBindings>
         <CommandBinding Command="{x:Static local:TestingWindow.MyCommand }" Executed="CommandBinding_Executed"></CommandBinding>
+        <CommandBinding Command="{x:Static local:TestingWindow.BindFirst }" Executed="Button_t1"></CommandBinding>
+        <CommandBinding Command="{x:Static local:TestingWindow.BindSecond }" Executed="Button_t2"></CommandBinding>
+        <CommandBinding Command="{x:Static local:TestingWindow.BindTree }" Executed="Button_t3"></CommandBinding>
+        <CommandBinding Command="{x:Static local:TestingWindow.BindFour }" Executed="Button_t4"></CommandBinding>
+        <CommandBinding Command="{x:Static local:TestingWindow.BindFive }" Executed="Button_t5"></CommandBinding>
+        <CommandBinding Command="{x:Static local:TestingWindow.BindSix }" Executed="Button_t6"></CommandBinding>
     </Window.CommandBindings>
     <Grid Background="#FFA8A8A8">
 
